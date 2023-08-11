@@ -1,0 +1,30 @@
+version: '3.8'
+services:  
+  educam_backend:
+    container_name: django
+    build: .
+    volumes:
+     - .:/app
+    ports:
+     - 8000:8000
+    depends_on:
+     - educam_db
+     - educam_redis
+
+  educam_db:
+    image: postgres
+    container_name: postgresql
+    restart: always
+    environment:
+        POSTGRES_DB: educam_db
+        POSTGRES_USER: postgres 
+        POSTGRES_PASSWORD: 1234
+    ports:
+      - 5432:5432
+    volumes:
+      - .dbdata:/var/lib/postgresql
+  educam_redis:
+    image: redis
+    container_name: redis
+    ports: 
+      - 6379:6379
