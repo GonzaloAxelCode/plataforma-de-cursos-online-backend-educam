@@ -51,3 +51,10 @@ uvicorn==0.20.0
 LWE4==0.0.0.2
 
 django-bunny-storage==0.1.2
+
+python-decouple==3.8
+rosetta==0.3
+django-allauth==0.56.1
+scipy==1.11.2
+nltk==3.8.1
+pandas==2.0.0
